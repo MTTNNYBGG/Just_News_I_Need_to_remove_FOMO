@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Institutional Intelligence{% endblock %}</title>
+<style>
+:root{--bg:#f3f5f7;--card:#fff;--ink:#14202b;--mute:#566574;--line:#cfd6dc;--accent:#0b5d6b;--hi:#a23b2a;--mid:#b07a12;--lo:#5b6b78;--ok:#2f6b3f}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1418;--card:#171e24;--ink:#e6ebef;--mute:#9aa8b4;--line:#2b363f;--accent:#5fb3c2;--hi:#e08a78;--mid:#d9a94a;--lo:#8a9aa6;--ok:#7fc28f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{border-bottom:1px solid var(--line);background:var(--card)}nav{max-width:60rem;margin:auto;padding:.6rem 1rem;display:flex;flex-wrap:wrap;gap:.2rem 1.1rem;align-items:baseline}
+nav b{font:700 1.15rem Charter,"Iowan Old Style",Georgia,serif;margin-right:auto}nav a{color:var(--mute);text-decoration:none;padding:.2rem 0}nav a.on{color:var(--ink);border-bottom:2px solid var(--accent)}
+main{max-width:60rem;margin:auto;padding:1.2rem 1rem 4rem}h1,h2,h3{font-family:Charter,"Iowan Old Style",Georgia,serif;line-height:1.25}h1{font-size:1.6rem;margin:.2rem 0 .8rem}h2{font-size:1.2rem;margin:1.6rem 0 .5rem}h3{font-size:1.05rem;margin:.9rem 0 .2rem}
+a{color:var(--accent)}.mute{color:var(--mute)}.small{font-size:.88rem}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--lo);border-radius:6px;padding:.9rem 1.1rem;margin:.9rem 0}
+.card.High{border-left-color:var(--hi)}.card.Medium{border-left-color:var(--mid)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem 1.1rem;margin:.8rem 0}.warn{border-left:5px solid var(--mid)}.bad{border-left:5px solid var(--hi)}.good{border-left:5px solid var(--ok)}
+.chips span{display:inline-block;border:1px solid var(--line);border-radius:4px;padding:0 .5rem;margin:0 .35rem .3rem 0;font-size:.88rem}
+button,.btn{font:inherit;background:var(--accent);color:#fff;border:0;border-radius:5px;padding:.45rem 1rem;cursor:pointer}button:disabled{background:var(--line);color:var(--mute);cursor:not-allowed}button.alt{background:none;color:var(--accent);border:1px solid var(--accent)}
+label{display:block;margin:.5rem 0 .15rem;font-weight:600}input[type=text],input[type=date],select,textarea{font:inherit;width:100%;max-width:28rem;padding:.35rem .5rem;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink)}
+.checks label{display:inline-block;font-weight:400;margin:.1rem 1rem .1rem 0;width:auto}table{border-collapse:collapse;width:100%;font-size:.92rem}td,th{border-bottom:1px solid var(--line);padding:.35rem .5rem;text-align:left;vertical-align:top}
+details{margin:.5rem 0}summary{cursor:pointer;color:var(--accent)}.row{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem}
+</style></head><body><header><nav><b>Institutional Intelligence</b>
+<a href="/" class="{{'on' if nav=='current'}}">Current edition</a><a href="/editions" class="{{'on' if nav=='editions'}}">Saved editions</a>
+<a href="/profile" class="{{'on' if nav=='profile'}}">Goals and profile</a><a href="/map" class="{{'on' if nav=='map'}}">Institutional map</a>
+<a href="/opportunities" class="{{'on' if nav=='opps'}}">Opportunity timing</a><a href="/sources" class="{{'on' if nav=='sources'}}">Sources</a></nav></header>
+<main>{% block body %}{% endblock %}</main></body></html>

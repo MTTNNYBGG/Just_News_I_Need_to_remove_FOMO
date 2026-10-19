@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block body %}<h1>Saved editions</h1>
+<p class="mute">Every edition is saved automatically when a refresh finds something new. Opening one never fetches anything.</p>
+<form method="get"><input type="text" name="q" value="{{ q }}" placeholder="Search headlines in saved editions" style="display:inline-block;width:20rem"> <button class="alt">Search</button></form>
+{% for r in rows %}<div class="panel"><a href="/editions/{{ r.id }}"><b>Edition #{{ r.id }}</b></a> · {{ r.created_at }} · {{ r.n }} item(s)<br><span class="small mute">{{ r.heads|join(' · ') }}</span></div>
+{% else %}<div class="panel">No saved editions{{ ' match your search' if q }}.</div>{% endfor %}{% endblock %}

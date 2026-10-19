@@ -1,0 +1,71 @@
+{
+ "profile": {
+  "situations": [
+   "student",
+   "migrant",
+   "technical_professional"
+  ],
+  "activities": [
+   "studying",
+   "expenses",
+   "applications",
+   "tech_use",
+   "building_research"
+  ],
+  "country": "South Africa",
+  "region": "Gauteng",
+  "city": "Vanderbijlpark",
+  "horizon": "months",
+  "emphasis": "both",
+  "detail": "standard",
+  "style": "plain",
+  "include_awareness": true,
+  "materiality": 30,
+  "excluded_categories": [],
+  "interests": [
+   "education",
+   "government",
+   "financial",
+   "markets",
+   "infrastructure",
+   "technology"
+  ]
+ },
+ "goals": [
+  {
+   "title": "Complete my data engineering qualification",
+   "outcome": "Graduate on schedule",
+   "priority": "high",
+   "target_date": "",
+   "activities": [
+    "studying",
+    "building_research"
+   ],
+   "dependencies": "tuition, funding, study permit, reliable internet and electricity",
+   "constraints": ""
+  },
+  {
+   "title": "Keep my study permit and legal status valid",
+   "outcome": "No gaps in permit validity",
+   "priority": "high",
+   "target_date": "",
+   "activities": [
+    "applications",
+    "studying"
+   ],
+   "dependencies": "Home Affairs rules and processing",
+   "constraints": ""
+  },
+  {
+   "title": "Keep living and study costs affordable",
+   "outcome": "Predictable monthly costs",
+   "priority": "medium",
+   "target_date": "",
+   "activities": [
+    "expenses"
+   ],
+   "dependencies": "exchange rates, data prices, electricity tariffs, food prices",
+   "constraints": ""
+  }
+ ]
+}

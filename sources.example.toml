@@ -1,0 +1,48 @@
+# Copy to config/sources.toml and edit. Feed URLs below are STARTING POINTS that have
+# NOT been verified from this build environment. Press Refresh on your own machine and
+# read the per-source status on the Sources page. Add official feeds for your own country
+# (central bank, tax authority, regulators, universities, utilities).
+#
+# tier: official | reputable | other      (drives the confidence estimate)
+# countries: names matched case-insensitively against the Country field in your profile.
+#            Leave empty for global sources.
+# reuse: what you may lawfully retain. The app stores only title, link, date and a short excerpt.
+
+[app]
+user_agent = "inews-personal/0.1 (self-hosted; add your contact address here)"
+
+[[sources]]
+id = "fed-press"
+name = "US Federal Reserve - press releases"
+url = "https://www.federalreserve.gov/feeds/press_all.xml"
+tier = "official"
+countries = ["United States"]
+enabled = true
+reuse = "US government publication; link and excerpt retained"
+
+[[sources]]
+id = "ecb-press"
+name = "European Central Bank - press"
+url = "https://www.ecb.europa.eu/rss/press.html"
+tier = "official"
+countries = []
+enabled = true
+reuse = "Link and excerpt retained; see ECB copyright notice"
+
+[[sources]]
+id = "bbc-business"
+name = "BBC News - Business"
+url = "https://feeds.bbci.co.uk/news/business/rss.xml"
+tier = "reputable"
+countries = []
+enabled = true
+reuse = "Headline, link and excerpt only; see BBC terms"
+
+[[sources]]
+id = "bbc-technology"
+name = "BBC News - Technology"
+url = "https://feeds.bbci.co.uk/news/technology/rss.xml"
+tier = "reputable"
+countries = []
+enabled = true
+reuse = "Headline, link and excerpt only; see BBC terms"

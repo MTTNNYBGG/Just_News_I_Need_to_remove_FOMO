@@ -1,0 +1,23 @@
+# ILLUSTRATIVE FORMAT ONLY. Rename to something.toml and replace with real, sourced data.
+[[records]]
+id = "example-calendar"
+title = "Example intake application window"
+kind = "published_calendar"        # published_calendar | official_deadline | historical_series
+activities = ["applications", "studying"]
+window_start = "2027-01-01"
+window_end = "2027-03-31"
+mechanism = "The institution publishes the dates on which it accepts applications."
+evidence_url = "https://example.org/admissions-calendar"
+potential_benefit = "Application is only possible inside the window."
+cost_of_acting = "Application fee and preparation time."
+risk_of_waiting = "Missing the window delays entry by a year."
+
+[[records]]
+id = "example-series"
+title = "Example monthly price index"
+kind = "historical_series"
+activities = ["tech_use"]
+better = "low"                     # which direction is advantageous
+mechanism = "Seasonal demand changes retail prices."
+evidence_url = "https://example.org/price-history"
+series = [["2022-01", 100.0], ["2022-02", 98.0]]   # needs >= 3 years of monthly points to be evaluated

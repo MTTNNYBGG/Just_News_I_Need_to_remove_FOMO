@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}<h1>Goals and profile</h1>
+<p class="mute">Stored only in the SQLite file on the machine running this app. No cookies are used. Fill in only what helps.</p>
+<form method="post" action="/profile">
+<h2>Situation</h2><div class="checks">{% for k,v in SITUATIONS.items() %}<label><input type="checkbox" name="situations" value="{{k}}" {{'checked' if k in profile.situations}}> {{v}}</label>{% endfor %}</div>
+<h2>Activities that could be affected</h2><div class="checks">{% for k,v in ACTIVITIES.items() %}<label><input type="checkbox" name="activities" value="{{k}}" {{'checked' if k in profile.activities}}> {{v}}</label>{% endfor %}</div>
+<h2>Location</h2><p class="small mute">Use the least precise level that is useful. Country must match the wording in your source registry's <code>countries</code> to count as local.</p>
+<label>Country</label><input type="text" name="country" value="{{profile.country}}"><label>Region or province (optional)</label><input type="text" name="region" value="{{profile.region}}"><label>City (optional)</label><input type="text" name="city" value="{{profile.city}}">
+<h2>Preferences</h2>
+<label>Level of detail</label><select name="detail">{% for k,v in DETAIL.items() %}<option value="{{k}}" {{'selected' if k==profile.detail}}>{{v}}</option>{% endfor %}</select>
+<label>Time horizon</label><select name="horizon">{% for k,v in HORIZONS.items() %}<option value="{{k}}" {{'selected' if k==profile.horizon}}>{{v}}</option>{% endfor %}</select>
+<label>Emphasis</label><select name="emphasis">{% for k,v in EMPHASIS.items() %}<option value="{{k}}" {{'selected' if k==profile.emphasis}}>{{v}}</option>{% endfor %}</select>
+<label>Writing style (stored; wording variants are not implemented yet)</label><select name="style">{% for k,v in STYLES.items() %}<option value="{{k}}" {{'selected' if k==profile.style}}>{{v}}</option>{% endfor %}</select>
+<label>Materiality threshold: {{ profile.materiality }} (items scoring below this are hidden)</label><input type="text" name="materiality" value="{{profile.materiality}}" style="width:6rem">
+<label><input type="checkbox" name="include_awareness" {{'checked' if profile.include_awareness}}> Include awareness-only items that need no action</label>
+<label>Areas of interest</label><div class="checks">{% for c in categories %}<label><input type="checkbox" name="interests" value="{{c.id}}" {{'checked' if c.id in profile.interests}}> {{c.label}}</label>{% endfor %}</div>
+<label>Areas to exclude</label><div class="checks">{% for c in categories %}<label><input type="checkbox" name="excluded_categories" value="{{c.id}}" {{'checked' if c.id in profile.excluded_categories}}> {{c.label}}</label>{% endfor %}</div>
+<p><button>Save profile</button></p></form>
+<h2>Goals</h2>
+{% for g in goals %}<div class="panel"><b>{{g.title}}</b> · priority {{g.priority}}{% if g.target_date %} · by {{g.target_date}}{% endif %}<br><span class="small mute">{{g.outcome}} {{g.dependencies}} {{g.constraints}}</span><br>
+<span class="small">Activities: {{ g.activities|join(', ') or 'none' }}</span>
+<form method="post" action="/goals/{{g.id}}/delete" style="display:inline"><button class="alt">Remove</button></form></div>{% else %}<p class="mute">No goals yet.</p>{% endfor %}
+<details><summary>Add a goal</summary><form method="post" action="/goals">
+<label>Goal</label><input type="text" name="title" required><label>Intended outcome</label><input type="text" name="outcome">
+<label>Priority</label><select name="priority"><option>high</option><option selected>medium</option><option>low</option></select>
+<label>Target date</label><input type="date" name="target_date"><label>Related activities</label><div class="checks">{% for k,v in ACTIVITIES.items() %}<label><input type="checkbox" name="activities" value="{{k}}"> {{v}}</label>{% endfor %}</div>
+<label>Dependencies</label><input type="text" name="dependencies"><label>Constraints (money, time, equipment, qualifications)</label><input type="text" name="constraints"><p><button>Add goal</button></p></form></details>
+<h2>Your data</h2>
+<p><a href="/data/export">Export everything as JSON</a></p>
+<form method="post" action="/data/delete" class="panel bad"><b>Delete stored data.</b> This cannot be undone.<br>
+<select name="scope"><option value="profile">Profile and goals</option><option value="editions">Editions and check history</option><option value="everything">Everything</option></select>
+<input type="text" name="confirm" placeholder="Type DELETE" style="width:10rem"> <button class="alt">Delete</button></form>
+{% endblock %}

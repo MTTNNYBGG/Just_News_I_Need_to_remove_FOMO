@@ -1,0 +1,35 @@
+# Every number that influences ranking lives here. Edit, restart, and the Evidence page
+# will show the new weights. Weights must sum to 1.0.
+[weights]
+impact = 0.30
+exposure = 0.25
+goal = 0.15
+time = 0.10
+reach = 0.10
+action = 0.10
+
+[thresholds]
+materiality_default = 40   # items scoring below this are not shown (profile can override)
+band_high = 65
+band_medium = 40
+
+[retrieval]
+partial_publish = true   # publish from working sources when some fail (edition is labelled PARTIAL; never starts the cooldown)
+lookback_days = 14
+near_duplicate_similarity = 0.60
+cooldown_hours = 3                  # applies only after a COMPLETE successful check with no qualifying news
+min_seconds_between_fetches = 60    # politeness gap between fetch rounds (0 disables); not the 3-hour rule
+stale_lock_minutes = 10
+http_timeout_seconds = 15
+max_items = 25
+
+[tiers]
+official = 0.90
+reputable = 0.70
+other = 0.50
+
+[horizon_days]
+immediate = 7
+weeks = 45
+months = 180
+long = 730

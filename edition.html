@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% import "_items.html" as m %}
+{% block body %}
+<h1>Edition #{{ edition.id }}</h1>
+<p class="mute">Created {{ edition.created_at }} (UTC) from retrieval at {{ edition.retrieved_at }}. This archived edition is read-only and never refreshed.</p>
+{{ m.items(edition, profile, edition.id) }}
+<h2>How this edition was produced</h2>
+<details open><summary>Sources queried</summary><table><tr><th>Source</th><th>Queried</th><th>Result</th><th>Entries</th></tr>
+{% for s in edition.payload.sources %}<tr><td>{{ s.name }}</td><td>{{ s.queried_at }}</td><td>{{ 'OK' if s.ok else 'FAILED' }} {{ s.warning }}</td><td>{{ s.entries }}</td></tr>{% endfor %}</table></details>
+<details><summary>Rejected stories ({{ edition.payload.rejected_total }})</summary><table><tr><th>Headline</th><th>Reason</th></tr>
+{% for r in edition.payload.rejected %}<tr><td><a href="{{ r.url }}" target="_blank" rel="noopener noreferrer">{{ r.headline }}</a></td><td>{{ r.reason }}</td></tr>{% endfor %}</table></details>
+<details><summary>Duplicate-detection rules applied ({{ edition.payload.dedup_applied|length }} this retrieval)</summary><table><tr><th>Article</th><th>Rule</th><th>Merged into</th></tr>
+{% for d in edition.payload.dedup_applied %}<tr><td>{{ d.title }}</td><td>{{ d.rule }}</td><td>{{ d.of }}</td></tr>{% endfor %}</table></details>
+<details><summary>Profile and parameters used</summary><pre class="small">{{ edition.profile_snapshot | tojson(indent=1) }}
+{{ edition.payload.params | tojson(indent=1) }}</pre></details>
+{% endblock %}

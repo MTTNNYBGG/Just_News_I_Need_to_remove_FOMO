@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% import "_items.html" as m %}
+{% block body %}
+<h1>Current edition</h1>
+{% if not profile.situations and not profile.activities and not goals %}
+<div class="panel warn">Your profile is empty, so nothing can qualify as relevant to you. <a href="/profile">Set your situation, activities and goals</a> first.</div>{% endif %}
+<div class="panel">
+<div class="row"><div>
+{% if st.last_check_at %}Last complete check: <b>{{ st.last_check_at }}</b> (UTC){% else %}No complete check has run yet.{% endif %}<br>
+{% if st.cooldown_until %}No new qualifying developments were found. Next eligible check: <b>{{ st.cooldown_until }}</b>.
+{% elif st.reason == 'in_progress' %}A refresh is running.
+{% elif st.reason == 'backoff' %}Please wait up to {{ st.backoff_seconds }} seconds between fetch rounds.
+{% else %}Nothing is fetched until you press Refresh. {{ sources_enabled }} source(s) enabled.{% endif %}</div>
+<form method="post" action="/refresh"><button {% if not st.can_refresh %}disabled{% endif %}>Refresh</button></form></div></div>
+<div class="panel"><form method="post" action="/reevaluate"><button class="alt">Re-evaluate stored articles with my current profile</button></form>
+<span class="small mute">Local only: no fetching and no effect on the cooldown. Use it after you change your profile or goals.</span>
+{% if local %}<p><b>Last local re-evaluation ({{ local.at }}):</b> {{ local.message }}</p>
+{% if local.unmatched_sample %}<details><summary>Headlines that matched no rule (sample)</summary><ul>{% for h in local.unmatched_sample %}<li>{{ h }}</li>{% endfor %}</ul><p class="small mute">If any of these should matter to you, add words to the right rule in config/rules.toml.</p></details>{% endif %}{% endif %}</div>
+{% if st.last_result %}{% set r = st.last_result %}
+<div class="panel {{ 'bad' if r.status == 'failed' else 'good' if r.status == 'new_edition' else '' }}">
+<b>Last refresh ({{ r.at }}):</b> {{ r.message }}
+{% if r.sources %}<details><summary>Per-source results</summary><table><tr><th>Source</th><th>Result</th><th>Entries</th></tr>
+{% for s in r.sources %}<tr><td>{{ s.name }}</td><td>{{ 'OK' if s.ok else 'FAILED: ' ~ s.error }}{% if s.warning %} ({{ s.warning }}){% endif %}</td><td>{{ s.entries }}</td></tr>{% endfor %}</table></details>{% endif %}</div>{% endif %}
+{% if edition %}
+<p class="mute small">Edition #{{ edition.id }} created {{ edition.created_at }}. It stays unchanged until you refresh. <a href="/editions/{{ edition.id }}">How it was produced</a></p>
+{{ m.items(edition, profile, edition.id) }}
+{% else %}
+<div class="panel good"><b>No edition yet.</b> Press Refresh to check your configured sources. If nothing qualifies, this page will say so.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,73 @@
+# VERIFIED SOURCES ONLY.
+# Checked on 19 Oct 2026 by fetching each URL and confirming valid RSS 2.0 with items posted within the last few days:
+#   businesstech, mybroadband, techcentral, businessday-ng.
+# bbc-business, bbc-technology and fed-press returned OK entries on your own machine (your Sources page).
+# Verified from MY side means the feed exists and is valid. Your machine's TLS settings can still differ:
+# if a source shows CERTIFICATE_VERIFY_FAILED, see README "TLS certificate errors" (INEWS_CA_BUNDLE).
+# Unverified candidates live in config/sources.candidates.toml, switched off.
+
+[app]
+user_agent = "inews-personal/0.1 (self-hosted; add your contact address here)"
+
+[[sources]]
+id = "businesstech"
+name = "BusinessTech (South Africa)"
+url = "https://businesstech.co.za/news/feed/"
+tier = "reputable"
+countries = ["South Africa"]
+enabled = true
+reuse = "Headline, link and short excerpt only; see publisher terms"
+
+[[sources]]
+id = "mybroadband"
+name = "MyBroadband (South Africa)"
+url = "https://mybroadband.co.za/news/feed"
+tier = "reputable"
+countries = ["South Africa"]
+enabled = true
+reuse = "Headline, link and short excerpt only; see publisher terms"
+
+[[sources]]
+id = "techcentral"
+name = "TechCentral (South Africa)"
+url = "https://techcentral.co.za/feed/"
+tier = "reputable"
+countries = ["South Africa"]
+enabled = true
+reuse = "Headline, link and short excerpt only; see publisher terms"
+
+[[sources]]
+id = "businessday-ng"
+name = "BusinessDay (Nigeria)"
+url = "https://businessday.ng/feed/"
+tier = "reputable"
+countries = ["Nigeria"]
+enabled = true
+reuse = "Headline, link and short excerpt only; see publisher terms"
+
+[[sources]]
+id = "bbc-business"
+name = "BBC News - Business"
+url = "https://feeds.bbci.co.uk/news/business/rss.xml"
+tier = "reputable"
+countries = []
+enabled = true
+reuse = "Headline, link and short excerpt only; see BBC terms"
+
+[[sources]]
+id = "bbc-technology"
+name = "BBC News - Technology"
+url = "https://feeds.bbci.co.uk/news/technology/rss.xml"
+tier = "reputable"
+countries = []
+enabled = true
+reuse = "Headline, link and short excerpt only; see BBC terms"
+
+[[sources]]
+id = "fed-press"
+name = "US Federal Reserve - press releases"
+url = "https://www.federalreserve.gov/feeds/press_all.xml"
+tier = "official"
+countries = ["United States"]
+enabled = true
+reuse = "US government publication; link and excerpt retained"

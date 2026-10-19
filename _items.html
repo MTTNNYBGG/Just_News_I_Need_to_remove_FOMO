@@ -1,0 +1,28 @@
+{% macro items(edition, profile, eid) %}
+{% if edition.payload.partial %}<div class="panel warn"><b>Partial edition.</b> These sources failed during the refresh and are missing from it: {% for s in edition.payload.sources if not s.ok %}{{ s.name }}{% if not loop.last %}, {% endif %}{% endfor %}.</div>{% endif %}
+{% for it in edition.payload["items"] %}
+<article class="card {{ it.band }}">
+<h3><a href="{{ it.url }}" rel="noopener noreferrer" target="_blank">{{ it.headline }}</a>
+{% if it.new %}<span class="mute small"> · new in this edition</span>{% elif it.updated %}<span class="mute small"> · updated</span>{% endif %}</h3>
+<p class="small mute">{{ it.source_name }} ({{ it.tier }}) · published {{ it.published or 'date not given' }} · retrieved {{ it.retrieved }}
+{% if it.institution %} · institution: {{ it.institution.name }}{% endif %}</p>
+<p class="small"><b>Relevance estimate {{ it.relevance }}/100 ({{ it.band }})</b> — an estimate from your profile, not a probability.
+Impact {{ it.impact_label }} · Likelihood for you {{ it.likelihood_label }} · Evidence confidence {{ it.confidence.label }}</p>
+<p><b>Connection to your life.</b> {{ it.connection }}</p>
+{% if profile.detail != 'brief' %}
+<p><b>Why this matters</b> <span class="mute small">(analytical inference)</span><br>{{ it.mechanism }}</p>
+<p><b>Potential effects</b> <span class="mute small">(conditional, not confirmed)</span><br>{{ it.consequence }}</p>
+<p><b>What to monitor next.</b> {{ it.monitor }}</p>
+<p><b>Timing.</b> {{ it.timing_note }}</p>
+{% endif %}
+<p><b>Recommended response:</b> {{ it.recommended_label }}</p>
+<details><summary>Evidence, inference and unknowns</summary>
+<p><b>Evidence (from the source).</b> Wording classified as “{{ it.status }}” (heuristic). Excerpt: “{{ it.evidence.excerpt }}”</p>
+<p><b>Inference (from rules and your profile).</b> Rule: {{ it.rule_label }}. Matched words: {{ it.matched_keywords|join(', ') }}.</p>
+<p><b>Unknowns.</b></p><ul>{% for u in it.unknowns %}<li>{{ u }}</li>{% endfor %}</ul>
+<p><a href="/editions/{{ eid }}/item/{{ it.story_id }}">Full score breakdown and sources</a></p></details>
+</article>
+{% else %}
+<div class="panel good"><b>Nothing in this edition currently requires your attention.</b> An empty edition is a valid result: it means nothing retrieved passed your materiality threshold, not that nothing happened.</div>
+{% endfor %}
+{% endmacro %}

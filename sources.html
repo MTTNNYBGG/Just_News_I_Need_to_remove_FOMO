@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}<h1>Sources and retrieval history</h1>
+<p class="mute">Retrieval happens only when you press Refresh. The app stores titles, links, dates and short excerpts, not full articles.</p>
+<table><tr><th>Source</th><th>Tier</th><th>Enabled</th><th>Retention / reuse note</th></tr>
+{% for s in sources %}<tr><td><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.name }}</a></td><td>{{ s.tier }}</td><td>{{ 'yes' if s.enabled|default(true) else 'no' }}</td><td>{{ s.reuse }}</td></tr>{% endfor %}</table>
+<h2>Recent checks</h2>
+{% for c in checks %}<div class="panel {{ 'bad' if c.outcome == 'failed' else '' }}"><b>{{ c.at }}</b> · {{ c.outcome }}<br><span class="small">{{ c.detail.message }}</span>
+<table>{% for s in c.detail.sources %}<tr><td>{{ s.name }}</td><td>{{ 'OK' if s.ok else 'FAILED: ' ~ s.error }} {{ s.warning }}</td><td>{{ s.entries }} entries</td></tr>{% endfor %}</table></div>
+{% else %}<div class="panel">No checks have run.</div>{% endfor %}{% endblock %}

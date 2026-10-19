@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}<h1>Institutional map</h1>
+<p class="mute">Pathways are editable rules in <code>config/rules.toml</code>; institutions and relationships come from <code>config/institutions.toml</code> and must cite sources.</p>
+<h2>Categories and the functions that control outcomes</h2>
+<table>{% for c in categories %}<tr><td><b>{{c.label}}</b></td><td>{{ c.functions|join(', ') }}</td></tr>{% endfor %}</table>
+<h2>Institutions you have documented</h2>
+{% for i in institutions %}<div class="panel"><b>{{i.name}}</b> ({{ cat_label.get(i.category, i.category) }}) {{ i.functions|join(', ') }}
+{% for r in i.relationships %}<br><span class="small">{{ r.type }} → {{ r.to }}: {{ r.note }} <a href="{{ r.source }}" target="_blank" rel="noopener noreferrer">source</a></span>{% endfor %}</div>
+{% else %}<div class="panel">None yet. Add sourced institutions to <code>config/institutions.toml</code>; nothing is assumed.</div>{% endfor %}
+<h2>Pathways: how developments reach people</h2>
+<table><tr><th>Pathway</th><th>Mechanism (inference)</th><th>Steps</th><th>Applies to you via</th></tr>
+{% for r in rules %}<tr><td>{{r.label}}</td><td>{{r.mechanism}}</td><td>{{r.hops}}</td><td>{{ (r.act + r.sit)|join(', ') or 'no match with your profile' }}</td></tr>{% endfor %}</table>
+{% endblock %}

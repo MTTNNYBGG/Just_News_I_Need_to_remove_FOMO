@@ -1,0 +1,59 @@
+# UNVERIFIED candidates, all switched off. This file is NOT loaded by the app.
+# To use one: copy its block into config/sources.toml, set enabled = true, restart, press Refresh, read the Sources page.
+# Feedspot lists the Mail & Guardian and IOL addresses; Daily Maverick, Moneyweb, Premium Times and Nairametrics are from memory.
+# STILL MISSING (most valuable for you): official feeds for SARB, SARS, Home Affairs, Eskom, Stellenbosch University,
+# NSFAS, the Central Bank of Nigeria and Stats SA. Find each site's RSS/newsroom link and add with tier = "official".
+
+[[sources]]
+id = "mg-business"
+name = "Mail & Guardian - Business"
+url = "https://mg.co.za/section/business/feed"
+tier = "reputable"
+countries = ["South Africa"]
+enabled = false
+reuse = "Headline, link and short excerpt only"
+
+[[sources]]
+id = "iol-business"
+name = "IOL - Business Report"
+url = "https://rss.iol.io/iol/business-report"
+tier = "reputable"
+countries = ["South Africa"]
+enabled = false
+reuse = "Headline, link and short excerpt only"
+
+[[sources]]
+id = "dailymaverick"
+name = "Daily Maverick"
+url = "https://www.dailymaverick.co.za/dmrss/"
+tier = "reputable"
+countries = ["South Africa"]
+enabled = false
+reuse = "Headline, link and short excerpt only"
+
+[[sources]]
+id = "moneyweb"
+name = "Moneyweb"
+url = "https://www.moneyweb.co.za/feed/"
+tier = "reputable"
+countries = ["South Africa"]
+enabled = false
+reuse = "Headline, link and short excerpt only"
+
+[[sources]]
+id = "premiumtimes"
+name = "Premium Times (Nigeria)"
+url = "https://www.premiumtimesng.com/feed"
+tier = "reputable"
+countries = ["Nigeria"]
+enabled = false
+reuse = "Headline, link and short excerpt only"
+
+[[sources]]
+id = "nairametrics"
+name = "Nairametrics (Nigeria)"
+url = "https://nairametrics.com/feed/"
+tier = "other"
+countries = ["Nigeria"]
+enabled = false
+reuse = "Headline, link and short excerpt only"

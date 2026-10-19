@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}<h1>Opportunity timing</h1>
+<p class="mute">Evidence-gated. Only sourced records in <code>data/timing/</code> ({{ n_records }} loaded) are evaluated. Without evidence the answer is “Insufficient evidence”. Timing patterns describe the past and are not predictions.</p>
+{% for g in goals %}<h2>{{ g.title }}</h2>
+{% for o in results[g.id] %}<div class="panel {{ 'good' if o.verdict in ('Published schedule','Demonstrated seasonal pattern') else 'warn' }}">
+<b>{{ o.title }}</b> — {{ o.verdict }}<br>
+{% if o.window %}Window: {{ o.window }}{% if o.state %} ({{ o.state }}){% endif %}<br>{% endif %}
+{% if o.likelihood %}Likelihood: {{ o.likelihood }}<br>{% endif %}
+<span class="small">{{ o.detail }}</span>
+{% if o.evidence_url %}<br><span class="small">Mechanism: {{ o.mechanism }} · Benefit: {{ o.benefit }} · Cost: {{ o.cost }} · Risk of waiting: {{ o.waiting_risk }} · <a href="{{ o.evidence_url }}" target="_blank" rel="noopener noreferrer">evidence</a></span>{% endif %}</div>{% endfor %}
+{% else %}<div class="panel">Add a goal on the <a href="/profile">profile page</a> to see timing evidence for it.</div>{% endfor %}{% endblock %}

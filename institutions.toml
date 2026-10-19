@@ -1,0 +1,273 @@
+# Institutional map. Categories and their controlling functions come from the project brief.
+# Add institutions you have researched. Every relationship MUST cite a source URL or the
+# loader refuses to start: the map is evidence-based, not assumed.
+#
+# [[institutions]]
+# id = "example-bank"
+# name = "Example Bank"
+# category = "financial"
+# countries = ["Exampleland"]
+# aliases = ["Example Bank", "EB Group"]
+# functions = ["lending standards", "fees"]
+#   [[institutions.relationships]]
+#   to = "example-regulator"
+#   type = "regulated by"
+#   note = "Capital requirements set by the regulator"
+#   source = "https://example.org/the-document-that-says-so"
+
+[[categories]]
+id = "financial"
+label = "Financial institutions"
+functions = ["lending standards", "credit availability", "fees", "interest rates", "risk policies"]
+[[categories]]
+id = "education"
+label = "Education"
+functions = ["admissions", "tuition", "accommodation capacity", "scholarship funding", "teaching capacity"]
+[[categories]]
+id = "government"
+label = "Government and regulation"
+functions = ["rules", "enforcement", "funding", "eligibility criteria", "taxation", "immigration"]
+[[categories]]
+id = "defence"
+label = "Defence and security"
+functions = ["procurement", "cybersecurity", "security infrastructure"]
+[[categories]]
+id = "healthcare"
+label = "Healthcare"
+functions = ["staffing", "appointment availability", "equipment capacity", "medicine supply", "service interruptions"]
+[[categories]]
+id = "technology"
+label = "Technology"
+functions = ["pricing", "access policies", "compute capacity", "product capabilities", "usage restrictions", "chip supply"]
+[[categories]]
+id = "housing"
+label = "Housing and construction"
+functions = ["project pipeline", "financing", "materials", "labour availability", "delivery schedules"]
+[[categories]]
+id = "retail"
+label = "Retail and consumer markets"
+functions = ["prices", "stock availability", "distribution"]
+[[categories]]
+id = "industrial"
+label = "Industrial production"
+functions = ["output", "reserves", "production costs", "processing capacity", "distribution constraints"]
+[[categories]]
+id = "infrastructure"
+label = "Infrastructure and utilities"
+functions = ["tariffs", "capacity", "reliability", "maintenance and outages"]
+[[categories]]
+id = "transport"
+label = "Transportation and logistics"
+functions = ["operating capacity", "prices", "routes", "reliability", "disruptions"]
+[[categories]]
+id = "agriculture"
+label = "Agriculture and food systems"
+functions = ["harvest output", "input costs", "processing", "food distribution"]
+[[categories]]
+id = "markets"
+label = "Markets and international commerce"
+functions = ["exchange rates", "trade rules", "central-bank policy", "commodity prices", "supply chains"]
+[[categories]]
+id = "professional"
+label = "Legal, professional and labour services"
+functions = ["recruitment cycles", "access to professional services", "licensing", "wages"]
+[[categories]]
+id = "capital"
+label = "Capital and concentrated private influence"
+functions = ["ownership", "investment decisions", "financing of other institutions"]
+
+# --- Added for a student/migrant profile in Vanderbijlpark and Stellenbosch, South Africa, with Nigerian ties.
+# Existence, category and country only, from general knowledge, NOT verified. No relationships are asserted
+# (relationships require a source URL). Edit freely.
+
+[[institutions]]
+id = "eskom"
+name = "Eskom"
+category = "infrastructure"
+countries = ["South Africa"]
+aliases = ["Eskom"]
+functions = ["electricity generation and supply", "tariffs", "load shedding"]
+
+[[institutions]]
+id = "rand-water"
+name = "Rand Water"
+category = "infrastructure"
+countries = ["South Africa"]
+aliases = ["Rand Water"]
+functions = ["bulk water supply", "tariffs", "maintenance outages"]
+
+[[institutions]]
+id = "emfuleni"
+name = "Emfuleni Local Municipality"
+category = "infrastructure"
+countries = ["South Africa"]
+aliases = ["Emfuleni"]
+functions = ["municipal water and electricity services", "rates and tariffs"]
+
+[[institutions]]
+id = "sarb"
+name = "South African Reserve Bank"
+category = "markets"
+countries = ["South Africa"]
+aliases = ["Reserve Bank", "SARB"]
+functions = ["repo rate", "exchange-rate policy", "financial stability"]
+
+[[institutions]]
+id = "sars"
+name = "South African Revenue Service"
+category = "government"
+countries = ["South Africa"]
+aliases = ["SARS", "South African Revenue Service"]
+functions = ["taxation", "VAT", "customs duties"]
+
+[[institutions]]
+id = "dha"
+name = "Department of Home Affairs"
+category = "government"
+countries = ["South Africa"]
+aliases = ["Home Affairs", "DHA"]
+functions = ["visas and permits", "residency", "immigration rules"]
+
+[[institutions]]
+id = "statssa"
+name = "Statistics South Africa"
+category = "government"
+countries = ["South Africa"]
+aliases = ["Stats SA", "Statistics South Africa"]
+functions = ["inflation, jobs and GDP statistics"]
+
+[[institutions]]
+id = "sun"
+name = "Stellenbosch University"
+category = "education"
+countries = ["South Africa"]
+aliases = ["Stellenbosch University", "Stellenbosch"]
+functions = ["admissions", "tuition", "teaching capacity", "timetables"]
+
+[[institutions]]
+id = "vut"
+name = "Vaal University of Technology"
+category = "education"
+countries = ["South Africa"]
+aliases = ["Vaal University of Technology", "VUT"]
+functions = ["admissions", "tuition", "accommodation"]
+
+[[institutions]]
+id = "nsfas"
+name = "NSFAS"
+category = "education"
+countries = ["South Africa"]
+aliases = ["NSFAS"]
+functions = ["student funding eligibility and payments"]
+
+[[institutions]]
+id = "arcelormittal-sa"
+name = "ArcelorMittal South Africa"
+category = "industrial"
+countries = ["South Africa"]
+aliases = ["ArcelorMittal"]
+functions = ["steel output", "employment", "local supply of steel"]
+
+[[institutions]]
+id = "sasol"
+name = "Sasol"
+category = "industrial"
+countries = ["South Africa"]
+aliases = ["Sasol"]
+functions = ["fuels and chemicals production", "employment"]
+
+[[institutions]]
+id = "transnet"
+name = "Transnet"
+category = "transport"
+countries = ["South Africa"]
+aliases = ["Transnet"]
+functions = ["rail and port capacity", "freight tariffs", "disruptions"]
+
+[[institutions]]
+id = "standard-bank"
+name = "Standard Bank"
+category = "financial"
+countries = ["South Africa"]
+aliases = ["Standard Bank"]
+functions = ["lending", "fees", "cross-border payments"]
+
+[[institutions]]
+id = "fnb"
+name = "FNB"
+category = "financial"
+countries = ["South Africa"]
+aliases = ["FNB", "First National Bank"]
+functions = ["lending", "fees"]
+
+[[institutions]]
+id = "absa"
+name = "Absa"
+category = "financial"
+countries = ["South Africa"]
+aliases = ["Absa"]
+functions = ["lending", "fees"]
+
+[[institutions]]
+id = "nedbank"
+name = "Nedbank"
+category = "financial"
+countries = ["South Africa"]
+aliases = ["Nedbank"]
+functions = ["lending", "fees"]
+
+[[institutions]]
+id = "capitec"
+name = "Capitec"
+category = "financial"
+countries = ["South Africa"]
+aliases = ["Capitec"]
+functions = ["retail banking", "fees"]
+
+[[institutions]]
+id = "vodacom"
+name = "Vodacom"
+category = "technology"
+countries = ["South Africa"]
+aliases = ["Vodacom"]
+functions = ["mobile data pricing", "network capacity"]
+
+[[institutions]]
+id = "mtn"
+name = "MTN"
+category = "technology"
+countries = ["South Africa", "Nigeria"]
+aliases = ["MTN"]
+functions = ["mobile data pricing", "network capacity"]
+
+[[institutions]]
+id = "telkom"
+name = "Telkom"
+category = "technology"
+countries = ["South Africa"]
+aliases = ["Telkom"]
+functions = ["fixed and mobile data pricing"]
+
+[[institutions]]
+id = "shoprite"
+name = "Shoprite"
+category = "retail"
+countries = ["South Africa"]
+aliases = ["Shoprite"]
+functions = ["food prices", "stock availability"]
+
+[[institutions]]
+id = "pnp"
+name = "Pick n Pay"
+category = "retail"
+countries = ["South Africa"]
+aliases = ["Pick n Pay"]
+functions = ["food prices", "stock availability"]
+
+[[institutions]]
+id = "cbn"
+name = "Central Bank of Nigeria"
+category = "markets"
+countries = ["Nigeria"]
+aliases = ["Central Bank of Nigeria", "CBN"]
+functions = ["naira policy", "exchange-rate and transfer rules"]

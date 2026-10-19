@@ -1,0 +1,276 @@
+# Editable pathway rules. Each rule is an explicit, inspectable claim: IF the text matches a keyword,
+# THEN this documented mechanism MAY reach people with these activities/situations.
+# Keywords also match simple plural/inflected forms (rate -> rates, hack -> hacked).
+# Text in mechanism/consequence is the project's analytical inference, and is labelled as such in the UI.
+
+[[rules]]
+id = "borrowing-costs"
+label = "Borrowing and savings rates"
+categories = ["financial", "markets"]
+keywords = ["interest rate", "repo rate", "mortgage rate", "rate hike", "rate cut", "lending standards", "credit availability", "loan repayments", "policy rate", "rates", "bank rate", "federal funds rate", "monetary policy", "discount rate", "mortgage", "loan", "lender", "credit", "borrowing costs", "savings rate", "interest on reserves", "reserve bank", "sarb", "prime rate"]
+activities = ["borrowing_saving", "housing"]
+situations = ["borrower", "saver_investor", "property_owner"]
+direction = "mixed"
+impact = 0.7
+actionability = 0.5
+hops = 1
+global = false
+mechanism = "Central-bank and lender decisions change the price of credit and the return on savings."
+consequence = "Loan or mortgage repayments may rise or fall, and savings returns may change, depending on whether your debt or savings rates are variable."
+monitor = "The lender's or central bank's next scheduled decision, and whether your own rate is variable or fixed."
+
+[[rules]]
+id = "education-costs"
+label = "Tuition, funding and admissions"
+categories = ["education"]
+keywords = ["tuition", "scholarship", "bursary", "student funding", "student loan", "admissions", "university fees", "student accommodation", "university", "universities", "student", "students", "school fees", "college", "graduate", "exam fees", "student debt", "nsfas", "registration fee", "fee increase", "student housing", "stellenbosch", "vaal university", "higher education", "postgraduate"]
+activities = ["studying", "applications", "expenses"]
+situations = ["student", "prospective_student", "migrant"]
+direction = "mixed"
+impact = 0.7
+actionability = 0.6
+hops = 1
+global = false
+mechanism = "Universities and funders control fees, places, accommodation and scholarship budgets."
+consequence = "Study costs, eligibility for funding, or the number of available places may change for people in your situation."
+monitor = "The effective date, the eligibility criteria, and any application deadline in the primary announcement."
+
+[[rules]]
+id = "tax-levies"
+label = "Taxes, levies and fees"
+categories = ["government"]
+keywords = ["vat", "value-added tax", "income tax", "tax rate", "levy", "tax bracket", "tax relief", "excise duty", "transaction fee", "tax", "taxes", "budget", "chancellor", "finance minister", "duty", "national insurance", "revenue authority", "bank charges", "sars", "south african revenue service", "efiling"]
+activities = ["expenses", "employment", "business"]
+situations = ["employed", "business_owner", "saver_investor"]
+direction = "mixed"
+impact = 0.6
+actionability = 0.45
+hops = 1
+global = false
+mechanism = "Governments and payment providers set charges that apply to many people at once; small amounts add up across purchases or income."
+consequence = "Your take-home pay, purchase prices or recurring costs may change once the measure takes effect."
+monitor = "The implementation date and any exemptions published by the authority."
+
+[[rules]]
+id = "utilities-supply"
+label = "Electricity, water and utilities"
+categories = ["infrastructure"]
+keywords = ["electricity tariff", "power cuts", "rolling blackouts", "load shedding", "water restrictions", "tariff increase", "water supply", "grid", "energy bills", "energy price cap", "price cap", "electricity", "gas prices", "water bills", "blackout", "power outage", "energy prices", "eskom", "stage 6", "rand water", "emfuleni", "water outage", "water crisis", "municipality", "municipal"]
+activities = ["expenses", "housing", "tech_use", "business"]
+situations = ["essential_services", "renter", "property_owner", "business_owner"]
+direction = "risk"
+impact = 0.65
+actionability = 0.5
+hops = 1
+global = false
+mechanism = "Utilities and grid operators control capacity and tariffs for services most activities depend on."
+consequence = "Household or business costs may rise, and supply interruptions may disrupt work, study or equipment use."
+monitor = "The regulator's tariff decision and the operator's published outage or restriction schedule."
+
+[[rules]]
+id = "transport-costs"
+label = "Transport costs and disruption"
+categories = ["transport"]
+keywords = ["fuel price", "petrol price", "diesel price", "fare increase", "rail disruption", "flight cancellations", "bus strike", "taxi fare", "freight rates", "fares", "train fares", "rail", "railway", "airline", "flights", "petrol", "fuel", "diesel", "airport", "shipping costs", "fuel levy", "taxi", "transnet", "metrorail", "prasa", "e-toll", "toll"]
+activities = ["travel_commute", "expenses"]
+situations = ["commuter", "essential_services"]
+direction = "risk"
+impact = 0.55
+actionability = 0.5
+hops = 1
+global = false
+mechanism = "Fuel prices, operator capacity and strikes determine what a journey costs and whether it can be made."
+consequence = "Commuting or travel may become more expensive or less reliable."
+monitor = "Published fuel-price adjustments, operator notices and strike or service-restoration dates."
+
+[[rules]]
+id = "housing-costs"
+label = "Housing and construction costs"
+categories = ["housing"]
+keywords = ["rent increase", "rental market", "house prices", "property prices", "housing shortage", "planning approval", "construction costs", "building materials", "rent", "rents", "landlord", "house price", "housebuilder", "housebuilding", "homebuyers", "property market", "mortgages"]
+activities = ["housing", "expenses", "borrowing_saving"]
+situations = ["renter", "property_owner", "borrower"]
+direction = "mixed"
+impact = 0.65
+actionability = 0.45
+hops = 2
+global = false
+mechanism = "Developers, financiers and planning authorities control housing supply; financing and material costs feed into rents and prices."
+consequence = "Rent, purchase prices or the availability of housing in your area may change."
+monitor = "Local rental or price statistics and planning or financing decisions that change supply."
+
+[[rules]]
+id = "ai-tech-access"
+label = "AI and software access and pricing"
+categories = ["technology"]
+keywords = ["ai model", "api pricing", "subscription price", "cloud outage", "usage limits", "data centre", "compute capacity", "open-source model", "licence change", "software licence", "ai", "artificial intelligence", "chatbot", "generative ai", "cloud", "software", "app store", "data centres", "open source", "subscription", "data prices", "data costs", "mobile data", "fibre", "broadband", "vodacom", "mtn", "telkom", "rain network"]
+activities = ["tech_use", "building_research", "business"]
+situations = ["technical_professional", "business_owner", "employed"]
+direction = "mixed"
+impact = 0.5
+actionability = 0.4
+hops = 2
+global = true
+mechanism = "A small number of providers control pricing, access terms and capacity for widely used tools."
+consequence = "Tools you rely on may become cheaper, costlier, restricted or newly available."
+monitor = "The provider's published terms or pricing page and any announced effective date."
+
+[[rules]]
+id = "hardware-supply"
+label = "Hardware and semiconductor supply"
+categories = ["technology", "industrial"]
+keywords = ["semiconductor", "chip shortage", "gpu", "memory prices", "laptop prices", "export controls", "wafer", "dram", "supply chain", "chips", "chip", "chipmaker", "computer prices", "memory chip", "export restrictions", "components"]
+activities = ["tech_use", "building_research", "business", "expenses"]
+situations = ["technical_professional", "student"]
+direction = "risk"
+impact = 0.55
+actionability = 0.4
+hops = 3
+global = true
+mechanism = "Chip fabrication and component supply pass through manufacturers and distributors before reaching retail prices."
+consequence = "Computers and components you plan to buy may become more expensive or harder to obtain."
+monitor = "Retail price trackers for the specific components and manufacturer capacity announcements."
+
+[[rules]]
+id = "healthcare-service"
+label = "Healthcare service and supply"
+categories = ["healthcare"]
+keywords = ["hospital", "clinic", "medicine shortage", "drug shortage", "health insurance", "medical aid", "waiting times", "vaccination", "public health", "nhs", "patients", "doctors", "medicines", "drug prices", "health service", "clinics", "hospitals", "medical"]
+activities = ["healthcare"]
+situations = ["essential_services"]
+direction = "risk"
+impact = 0.6
+actionability = 0.5
+hops = 1
+global = false
+mechanism = "Providers and insurers control capacity, staffing, stock and cover."
+consequence = "Access to appointments, medicines or insurance cover may change."
+monitor = "Notices from your provider or insurer and the health authority's service updates."
+
+[[rules]]
+id = "immigration-visas"
+label = "Immigration, visas and permits"
+categories = ["government"]
+keywords = ["visa", "immigration", "work permit", "residency", "study permit", "citizenship", "visas", "migrants", "migration", "asylum", "work visa", "student visa", "border controls", "residence permit", "home affairs", "vfs", "permit", "dha", "critical skills", "foreigners", "foreign nationals"]
+activities = ["studying", "employment", "travel_commute", "applications"]
+situations = ["migrant", "prospective_student", "job_seeker"]
+direction = "risk"
+impact = 0.75
+actionability = 0.65
+hops = 1
+global = false
+mechanism = "Immigration authorities set eligibility rules, fees and processing capacity."
+consequence = "Requirements, costs or processing times for your permit or application may change."
+monitor = "The authority's official notice, effective date and transitional arrangements."
+
+[[rules]]
+id = "labour-market"
+label = "Jobs and recruitment"
+categories = ["professional"]
+keywords = ["layoffs", "job cuts", "hiring freeze", "unemployment rate", "recruitment", "graduate programme", "minimum wage", "skills shortage", "jobs", "job losses", "redundancies", "unemployment", "wages", "pay rise", "employment", "hiring", "workers", "strike", "salaries", "retrenchment", "retrenchments", "section 189", "graduate jobs", "internship", "learnership", "youth unemployment"]
+activities = ["employment", "applications"]
+situations = ["job_seeker", "employed", "business_owner"]
+direction = "mixed"
+impact = 0.6
+actionability = 0.5
+hops = 2
+global = false
+mechanism = "Employers' hiring decisions and wage rules shape the number and pay of available jobs."
+consequence = "The availability or pay of work in your field may change."
+monitor = "Employer or statistics-agency releases for your sector and recruitment-window dates."
+
+[[rules]]
+id = "food-prices"
+label = "Food prices and supply"
+categories = ["agriculture", "retail"]
+keywords = ["food prices", "fertiliser", "harvest", "drought", "grain", "maize", "wheat", "food inflation", "food", "grocery", "groceries", "supermarket", "supermarkets", "shop prices", "farmers", "farming", "crop"]
+activities = ["expenses"]
+situations = ["essential_services"]
+direction = "risk"
+impact = 0.5
+actionability = 0.3
+hops = 3
+global = true
+mechanism = "Crop output and input costs pass through processors and retailers to shelf prices."
+consequence = "Your grocery spending may rise if the change is passed on to retail prices."
+monitor = "Official food-price indices and retailer price announcements."
+
+[[rules]]
+id = "trade-currency"
+label = "Trade, currency and inflation"
+categories = ["markets"]
+keywords = ["tariff", "trade deal", "exchange rate", "currency", "devaluation", "import duty", "sanctions", "inflation rate", "commodity prices", "oil price", "inflation", "trade war", "tariffs", "exports", "imports", "pound", "dollar", "euro", "stock market", "oil", "recession", "gdp", "economy", "rand", "zar", "naira", "ngn"]
+activities = ["expenses", "business", "borrowing_saving"]
+situations = ["saver_investor", "business_owner"]
+direction = "mixed"
+impact = 0.55
+actionability = 0.4
+hops = 2
+global = true
+mechanism = "Trade rules and currency moves change the cost of imported goods and the value of savings."
+consequence = "Prices of imported goods or the value of your savings may change."
+monitor = "The next official inflation release or trade-measure effective date."
+
+[[rules]]
+id = "cyber-security"
+label = "Security incidents and vulnerabilities"
+categories = ["defence", "technology"]
+keywords = ["data breach", "ransomware", "cyberattack", "security vulnerability", "password leak", "hack", "hackers", "hacked", "cyber attack", "cyber-attack", "breach", "scam", "scams", "fraud", "malware", "phishing", "data leak"]
+activities = ["tech_use", "business"]
+situations = ["technical_professional", "business_owner", "essential_services"]
+direction = "risk"
+impact = 0.55
+actionability = 0.65
+hops = 1
+global = false
+mechanism = "Breaches and vulnerabilities in widely used services expose accounts and data held by their users."
+consequence = "Accounts or data you hold with an affected provider may be exposed and may need protective steps."
+monitor = "The provider's own incident notice and any patch or password-reset instructions."
+
+[[rules]]
+id = "funding-opportunities"
+label = "Grants, funding calls and deadlines"
+categories = ["education", "government"]
+keywords = ["grant", "funding call", "call for applications", "applications open", "applications close", "fellowship", "research funding", "tender", "funding", "grants", "scholarships", "applications", "apply by", "competition", "award", "programme"]
+activities = ["applications", "building_research", "business", "studying"]
+situations = ["prospective_student", "student", "technical_professional", "business_owner"]
+direction = "opportunity"
+impact = 0.55
+actionability = 0.7
+hops = 1
+global = false
+mechanism = "Funders open and close application windows on published schedules."
+consequence = "An application window may open or close that you could use or miss."
+monitor = "The opening and closing dates and the eligibility criteria in the funder's call."
+
+[[rules]]
+id = "cross-border-money"
+label = "Remittances, naira and exchange controls"
+categories = ["financial", "markets"]
+keywords = ["naira", "remittance", "cross-border payment", "money transfer", "exchange control", "central bank of nigeria", "cbn", "forex", "currency controls", "foreign exchange", "swift", "wise", "western union"]
+activities = ["expenses", "borrowing_saving"]
+situations = ["migrant", "student"]
+direction = "mixed"
+impact = 0.6
+actionability = 0.5
+hops = 2
+global = true
+mechanism = "Central banks and payment providers set exchange rates, transfer limits and fees for money moved between countries."
+consequence = "The cost of sending or receiving money between Nigeria and South Africa, or of paying fees in another currency, may change."
+monitor = "The central bank's or payment provider's published rule or rate change and its effective date."
+
+[[rules]]
+id = "local-industry-employment"
+label = "Local industry, plant closures and jobs"
+categories = ["industrial"]
+keywords = ["arcelormittal", "steel", "sasol", "plant closure", "retrenchment", "smelter", "mine closure", "mining jobs", "vanderbijlpark", "sedibeng", "vaal", "emfuleni"]
+activities = ["employment", "expenses", "housing"]
+situations = ["job_seeker", "employed", "essential_services", "renter", "student"]
+direction = "risk"
+impact = 0.6
+actionability = 0.4
+hops = 2
+global = false
+mechanism = "Large local employers support wages, local spending and municipal revenue; cuts or closures reduce them and the local labour market."
+consequence = "Job availability, local prices and local services around you may change if a major employer scales back."
+monitor = "The employer's own notices, labour-consultation steps and any government support announcements."

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+<p><a href="/editions/{{ edition.id }}">← Edition #{{ edition.id }}</a></p>
+<h1>{{ it.headline }}</h1>
+<p><a href="{{ it.url }}" target="_blank" rel="noopener noreferrer">Original source</a> · {{ it.source_name }} · published {{ it.published or 'not given' }} · retrieved {{ it.retrieved }}</p>
+<h2>Score breakdown (as in this edition)</h2>
+<p>Relevance estimate <b>{{ it.relevance }}/100</b> = 100 × Σ weight × factor. It is an estimate, and not a probability. Confidence in the facts is separate: <b>{{ it.confidence.label }}</b> ({{ it.confidence.reasons|join('; ') }}).</p>
+<table><tr><th>Factor</th><th>Value</th><th>Weight</th><th>Points</th><th>Basis</th></tr>
+{% for f in it.factors %}<tr><td>{{ f.factor }}</td><td>{{ f.value }}</td><td>{{ f.weight }}</td><td>{{ f.points }}</td><td>{{ f.why }}</td></tr>{% endfor %}</table>
+<h2>What if I change my profile?</h2>
+{% if now_item %}{% if now_item.reject %}Under your <i>current</i> profile this story would be filtered out: {{ now_item.reject }} (score {{ now_item.relevance }}).
+{% else %}Under your <i>current</i> profile this story would score <b>{{ now_item.relevance }}</b> (edition showed {{ it.relevance }}).{% endif %}
+Edit your <a href="/profile">profile</a> and reload this page to see the effect. Editions are never modified; the change appears in the next one.
+{% else %}The stored articles for this story are no longer available locally.{% endif %}
+<h2>Sources in this story</h2><ul>{% for m in it.evidence.members %}<li><a href="{{ m.url }}" target="_blank" rel="noopener noreferrer">{{ m.title }}</a> — {{ m.source }}, {{ m.published or 'date not given' }}{% if m.dedup and m.dedup != 'new_story' %} <span class="mute">({{ m.dedup }})</span>{% endif %}</li>{% endfor %}</ul>
+<h2>Reasoning</h2><p><b>Rule:</b> {{ it.rule_label }} · <b>Direction:</b> {{ it.direction }} · <b>Dates mentioned:</b> {{ it.dates_mentioned|join(', ') or 'none' }}</p>
+<p><b>Evidence:</b> “{{ it.evidence.excerpt }}”<br><b>Inference:</b> {{ it.mechanism }} {{ it.consequence }}</p>
+<p><b>Unknowns</b></p><ul>{% for u in it.unknowns %}<li>{{ u }}</li>{% endfor %}</ul>
+{% endblock %}
